@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #343a40;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px -10px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .result.fake {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .result.real {
+            background-color: #d4edda;
+            color: #155724;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Fake News Detection</h1>
+    <form  action="/predict" method="post">
+        
+        <textarea name="text" rows="10"   id="newsText"  placeholder="Enter some  text to detect....."></textarea>
+        <button onclick="validateTextarea()"  type="submit"  rows="10" value="check" >Submit</button>
+        
+    </form>
+    <div id="result" class="result" style="display: none;"></div>
+</div>
+<script>
+    function validateTextarea(event) {
+        event.preventDefault();
+        
+        var text = document.getElementById('newsText').value;
+        console.log("home text", text)
+        if(text == "") return alert("Please input some text");
+    }
+</script>  
+</body>
+</html>
